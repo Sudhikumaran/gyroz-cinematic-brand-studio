@@ -78,16 +78,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "GYROZ STUDIO — Creative Agency in Tiruppur" },
+      {
+        name: "description",
+        content:
+          "Gyroz Studio is a creative and digital marketing agency in Tiruppur, Tamil Nadu — ad films, podcast production, reels, photography, personal branding and digital marketing. Creative Minds. Clear Purpose.",
+      },
+      { name: "author", content: "Gyroz Studio" },
+      { property: "og:title", content: "GYROZ STUDIO — Creative Agency in Tiruppur" },
+      {
+        property: "og:description",
+        content:
+          "Creative storytelling, powerful visuals, and digital strategies that help brands stand out, connect, and grow.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap",
+      },
       {
         rel: "stylesheet",
         href: appCss,
