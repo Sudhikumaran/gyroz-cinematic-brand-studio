@@ -1,24 +1,53 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { About } from "@/components/site/About";
+import { Approach } from "@/components/site/Approach";
+import { Contact } from "@/components/site/Contact";
+import { Footer } from "@/components/site/Footer";
+import { Hero } from "@/components/site/Hero";
+import { Marquee } from "@/components/site/Marquee";
+import { Navbar } from "@/components/site/Navbar";
+import { Portfolio } from "@/components/site/Portfolio";
+import { Services } from "@/components/site/Services";
+import { Studio } from "@/components/site/Studio";
+import { WhyChoose } from "@/components/site/WhyChoose";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "GYROZ STUDIO — Creative Agency in Tiruppur" },
+      {
+        name: "description",
+        content:
+          "Gyroz Studio is a creative and digital marketing agency in Tiruppur, Tamil Nadu — ad films, podcast production, reels, photography, personal branding and digital marketing. Creative Minds. Clear Purpose. Your Digital Growth Partner.",
+      },
+      { property: "og:title", content: "GYROZ STUDIO — Creative Agency in Tiruppur" },
+      {
+        property: "og:description",
+        content:
+          "Creative storytelling, powerful visuals, and digital strategies that help brands stand out, connect, and grow.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: GyrozSite,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function GyrozSite() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="bg-background text-foreground">
+      <Navbar />
+      <Hero />
+      <Marquee />
+      <About />
+      <Services />
+      <Studio />
+      <Approach />
+      <Portfolio />
+      <WhyChoose />
+      <Contact />
+      <Footer />
+    </main>
   );
 }
