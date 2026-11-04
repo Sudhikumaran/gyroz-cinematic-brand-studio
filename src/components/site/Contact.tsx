@@ -40,7 +40,8 @@ export function Contact() {
       const flat = parsed.error.flatten().fieldErrors;
       const mapped: FieldErrors = {};
       for (const key of Object.keys(flat) as (keyof EnquiryInput)[]) {
-        mapped[key] = flat[key]?.[0];
+        const message = flat[key]?.[0];
+        if (message) mapped[key] = message;
       }
       setErrors(mapped);
       return;
